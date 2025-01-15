@@ -1,0 +1,234 @@
+local StarterGUI = game:GetService("StarterGui")
+StarterGUI:SetCore("SendNotification", {Title = "Script executed", Text = "Thank you for Glazing KJ ".. game.Players.LocalPlayer.Name})
+wait(2)
+local GUI = Instance.new("ScreenGui", game.Players.LocalPlayer.PlayerGui)
+GUI.Name = "KJFEANIMATIONS"
+local main = Instance.new("Frame", GUI)
+main.BackgroundColor3 = Color3.new(0.101961, 0.101961, 0.101961)
+main.Size = UDim2.new(0,409,0,19)
+main.Position = UDim2.new(0,0,0,0)
+main.Name = "MainFrame"
+local uidrag = Instance.new("UIDragDetector", main)
+uidrag.Name = "mainuidrag"
+local uicorner = Instance.new("UICorner", main)
+uicorner.CornerRadius = UDim.new(0,5)
+local background = Instance.new("Frame", main)
+background.Name = "Background"
+background.BackgroundColor3 = Color3.new(0.0666667, 0.0666667, 0.0666667)
+background.Position = UDim2.new(0,0,1,0)
+background.Size = UDim2.new(0,409,0,278)
+local uicornerbackground = Instance.new("UICorner", background)
+uicornerbackground.CornerRadius = UDim.new(0,5)
+local textlabel = Instance.new("TextLabel", main)
+textlabel.BackgroundTransparency = 1
+textlabel.Position = UDim2.new(0,0,0,0)
+textlabel.Size = UDim2.new(0,409,0,19)
+textlabel.Font = Enum.Font.Kalam
+textlabel.FontFace.Style = Enum.FontStyle.Italic
+textlabel.Text = "LiterallyCheater's KJ Animations"
+textlabel.TextSize = 17
+textlabel.TextColor3 = Color3.new(1, 1, 1)
+local scrollingframe = Instance.new("ScrollingFrame", background)
+scrollingframe.BackgroundColor3 = Color3.new(0.0980392, 0.0980392, 0.0980392)
+scrollingframe.Position = UDim2.new(0.024,0,0.043,0)
+scrollingframe.Size = UDim2.new(0,384,0,251)
+scrollingframe.BorderSizePixel = 0
+scrollingframe.Name = "KJ Stuffz"
+local ravagebutton = Instance.new("TextButton", scrollingframe)
+ravagebutton.Name = "Ravage"
+ravagebutton.BackgroundColor3 = Color3.new(0.121569, 0.109804, 0.109804)
+ravagebutton.Position = UDim2.new(0.065,0,0.028,0)
+ravagebutton.Size = UDim2.new(0,338,0,40)
+ravagebutton.Text = "Ravage"
+ravagebutton.Font = Enum.Font.Kalam
+ravagebutton.FontFace.Style = Enum.FontStyle.Italic
+ravagebutton.TextScaled = true
+ravagebutton.TextColor3 = Color3.new(1,1,1)
+local uicornerravage = Instance.new("UICorner", ravagebutton)
+ravagebutton.MouseButton1Up:Connect(function()
+	ravagebutton.Visible = false
+	print("Ravage Animation played, warning: you cant use this after kj gets deleted")
+	local animationrav = Instance.new("Animation", workspace)
+	animationrav.Name = "RavageStart"
+	animationrav.AnimationId = "rbxassetid://16945573694"
+	local hum = game.Players.LocalPlayer.Character:WaitForChild("Humanoid")
+	hum.WalkSpeed = 0
+	hum.JumpPower = 0
+	hum.AutoRotate = false
+	local loadstart = hum:LoadAnimation(animationrav)
+	loadstart:Play()
+	wait(0.7)
+	loadstart:Stop()
+	animationrav:Destroy()
+	local animationhit = Instance.new("Animation", workspace)
+	animationhit.Name = "RavageHit"
+	animationhit.AnimationId = "rbxassetid://16945550029"
+	local loadhit = hum:LoadAnimation(animationhit)
+	loadhit:Play()
+	loadhit.Ended:Connect(function()
+		hum.WalkSpeed = 16
+		hum.JumpPower = 50
+		hum.AutoRotate = true
+		ravagebutton.Visible = true
+		animationhit:Destroy()
+		loadhit:Stop()
+	end)
+end)
+local swiftbutton = Instance.new("TextButton", scrollingframe)
+swiftbutton.Name = "Swift Sweep"
+swiftbutton.BackgroundColor3 = Color3.new(0.121569, 0.109804, 0.109804)
+swiftbutton.Position = UDim2.new(0.065,0,0.028,50)
+swiftbutton.Size = UDim2.new(0,338,0,40)
+swiftbutton.Text = "Swift Sweep"
+swiftbutton.Font = Enum.Font.Kalam
+swiftbutton.FontFace.Style = Enum.FontStyle.Italic
+swiftbutton.TextScaled = true
+swiftbutton.TextColor3 = Color3.new(1,1,1)
+local uicornerswift = Instance.new("UICorner", swiftbutton)
+swiftbutton.MouseButton1Up:Connect(function()
+	print("Sweep Animation played, warning: you cant use this after kj gets deleted")
+	local hum = game.Players.LocalPlayer.Character:WaitForChild("Humanoid")
+	hum.WalkSpeed = 0
+	hum.JumpPower = 0
+	hum.AutoRotate = false
+	local swiftsweepmiss = Instance.new("Animation", workspace)
+	swiftsweepmiss.Name = "Miss"
+	swiftsweepmiss.AnimationId = "rbxassetid://16944265635"
+	local loadsweepmiss = game.Players.LocalPlayer.Character:WaitForChild("Humanoid"):LoadAnimation(swiftsweepmiss)
+	loadsweepmiss:Play()
+	wait(0.3)
+	loadsweepmiss:Stop()
+	swiftsweepmiss:Destroy()
+	local swiftsweephit = Instance.new("Animation", workspace)
+	swiftsweephit.Name = "Hit"
+	swiftsweephit.AnimationId = "rbxassetid://16944345619"
+	local loadsweephit = game.Players.LocalPlayer.Character:WaitForChild("Humanoid"):LoadAnimation(swiftsweephit)
+	loadsweephit:Play()
+	loadsweephit.Ended:Connect(function()
+		hum.WalkSpeed = 16
+		hum.JumpPower = 50
+		hum.AutoRotate = true
+		loadsweephit:Stop()
+		swiftsweephit:Destroy()
+	end)
+end)
+
+local ruinbutton = Instance.new("TextButton", scrollingframe)
+ruinbutton.Name = "Collateral Ruin"
+ruinbutton.BackgroundColor3 = Color3.new(0.121569, 0.109804, 0.109804)
+ruinbutton.Position = UDim2.new(0.065,0,0.028,100)
+ruinbutton.Size = UDim2.new(0,338,0,40)
+ruinbutton.Text = "Collateral Ruin"
+ruinbutton.Font = Enum.Font.Kalam
+ruinbutton.FontFace.Style = Enum.FontStyle.Italic
+ruinbutton.TextScaled = true
+ruinbutton.TextColor3 = Color3.new(1,1,1)
+local uicornerruin = Instance.new("UICorner", ruinbutton)
+ruinbutton.MouseButton1Up:Connect(function()
+	print("Ruin Animation played, warning: you cant use this after kj gets deleted")
+	local collateralruinanim = Instance.new("Animation", workspace)
+	collateralruinanim.Name = "Collateral Ruin"
+	collateralruinanim.AnimationId = "rbxassetid://17325254223"
+	local loadruin = game.Players.LocalPlayer.Character:WaitForChild("Humanoid"):LoadAnimation(collateralruinanim)
+	loadruin:Play()
+	loadruin.Ended:Connect(function()
+		loadruin:Stop()
+		collateralruinanim:Destroy()
+	end)
+end)
+
+local spiralbutton = Instance.new("TextButton", scrollingframe)
+spiralbutton.Name = "Spiraling Storm"
+spiralbutton.BackgroundColor3 = Color3.new(0.121569, 0.109804, 0.109804)
+spiralbutton.Position = UDim2.new(0.065,0,0.028,150)
+spiralbutton.Size = UDim2.new(0,338,0,40)
+spiralbutton.Text = "Spiraling Storm"
+spiralbutton.Font = Enum.Font.Kalam
+spiralbutton.FontFace.Style = Enum.FontStyle.Italic
+spiralbutton.TextScaled = true
+spiralbutton.TextColor3 = Color3.new(1,1,1)
+local uicornerspiral = Instance.new("UICorner", spiralbutton)
+
+spiralbutton.MouseButton1Up:Connect(function()
+	print("Spiral Animation played, warning: you cant use this after kj gets deleted")
+	local spiralanim = Instance.new("Animation", workspace)
+	spiralanim.Name = "Spiraling Storm Miss"
+	spiralanim.AnimationId = "rbxassetid://78521642007560"
+	local loadspiral = game.Players.LocalPlayer.Character:WaitForChild("Humanoid"):LoadAnimation(spiralanim)
+	loadspiral:Play()
+	wait(0.6)
+	spiralanim:Destroy()
+	loadspiral:Stop()
+	local spiralhitanim = Instance.new("Animation", workspace)
+	spiralhitanim.Name = "Spiraling Storm Hit"
+	spiralhitanim.AnimationId = "rbxassetid://81827172076105"
+	local spiralhitload = game.Players.LocalPlayer.Character:WaitForChild("Humanoid"):LoadAnimation(spiralhitanim)
+	spiralhitload:Play()
+	spiralhitload.Ended:Connect(function()
+		spiralhitload:Stop()
+		spiralhitanim:Destroy()
+	end)
+end)
+
+local scrollingframeult = Instance.new("ScrollingFrame", background)
+scrollingframeult.BackgroundColor3 = Color3.new(0.0980392, 0.0980392, 0.0980392)
+scrollingframeult.Position = UDim2.new(0.024,0,0.043,0)
+scrollingframeult.Size = UDim2.new(0,384,0,251)
+scrollingframeult.BorderSizePixel = 0
+scrollingframeult.Name = "KJ Stuffz Ult"
+scrollingframeult.Visible = false
+
+local ult_move_button = Instance.new("TextButton", main)
+local ultmovecorner = Instance.new("UICorner", ult_move_button)
+ult_move_button.BackgroundColor3 = Color3.new(0.164706, 0.164706, 0.164706)
+ult_move_button.Position = UDim2.new(0.101,0,1.003,0)
+ult_move_button.Size = UDim2.new(0,32,0,11)
+ult_move_button.Name = "ult move button"
+ult_move_button.FontFace.Style = Enum.FontStyle.Italic
+ult_move_button.Font = Enum.Font.Kalam
+ult_move_button.TextColor3 = Color3.new(1,1,1)
+ult_move_button.TextScaled = true
+ult_move_button.Text = "Ult"
+ult_move_button.MouseButton1Up:Connect(function()
+	scrollingframe.Visible = false
+	scrollingframeult.Visible = true
+end)
+local base_move_button = Instance.new("TextButton", main)
+local basemovecorner = Instance.new("UICorner", base_move_button)
+base_move_button.BackgroundColor3 = Color3.new(0.164706, 0.164706, 0.164706)
+base_move_button.Position = UDim2.new(0.023,0,1.003,0)
+base_move_button.Size = UDim2.new(0,32,0,11)
+base_move_button.Name = "base move button"
+base_move_button.FontFace.Style = Enum.FontStyle.Italic
+base_move_button.Font = Enum.Font.Kalam
+base_move_button.TextColor3 = Color3.new(1,1,1)
+base_move_button.TextScaled = true
+base_move_button.Text = "Base"
+base_move_button.MouseButton1Up:Connect(function()
+	scrollingframe.Visible = true
+	scrollingframeult.Visible = false
+end)
+
+local stoicbutton = Instance.new("TextButton", scrollingframeult)
+stoicbutton.Name = "Stoic Bomb"
+stoicbutton.BackgroundColor3 = Color3.new(0.121569, 0.109804, 0.109804)
+stoicbutton.Position = UDim2.new(0.065,0,0.028,0)
+stoicbutton.Size = UDim2.new(0,338,0,40)
+stoicbutton.Text = "Stoic Bomb"
+stoicbutton.Font = Enum.Font.Kalam
+stoicbutton.FontFace.Style = Enum.FontStyle.Italic
+stoicbutton.TextScaled = true
+stoicbutton.TextColor3 = Color3.new(1,1,1)
+local stoicbuttonuicorner = Instance.new("UICorner", stoicbutton)
+stoicbutton.MouseButton1Up:Connect(function()
+	print("KJ ULT stoic bomb has been played, after KJ gets deleted u cant use it anymore.")
+	local animationstoic = Instance.new("Animation", workspace)
+	animationstoic.Name = "Stoic Bomb"
+	animationstoic.AnimationId = "rbxassetid://17141153099"
+	local loadstoicbomb = game.Players.LocalPlayer.Character:WaitForChild("Humanoid"):LoadAnimation(animationstoic)
+	loadstoicbomb:Play()
+	loadstoicbomb.Ended:Connect(function()
+		loadstoicbomb:Stop()
+		animationstoic:Destroy()
+	end)
+end)
